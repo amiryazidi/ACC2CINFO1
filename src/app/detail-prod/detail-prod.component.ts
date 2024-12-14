@@ -15,7 +15,12 @@ export class DetailProdComponent {
 
   ngOnInit(){
     this.id=this.act.snapshot.params['id'];
-    this.product=this.ps.Product.find(p=>p.id==this.id)!;
+   // this.product=this.ps.Product.find(p=>p.id==this.id)!;
+
+   this.ps.getProductById(this.id).subscribe(
+      (data)=>this.product=data
+      
+   )
 
   }
 

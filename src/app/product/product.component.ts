@@ -13,7 +13,10 @@ export class ProductComponent {
   Product: Product[] = [];
 
   ngOnInit(){
-    this.Product= this.ps.Product
+   // this.Product= this.ps.Product
+ this.ps.getAllProducts().subscribe(
+  (data) => this.Product=data
+ )
   }
 
 

@@ -1,0 +1,17 @@
+{
+    "products": [{
+        "id": "1",
+        "title": "iphone 16",
+        "price": "500",
+        "quantity": "5",
+        "image": "../../assets/images/iphone1.jpg"
+    }],
+    "residences": [{
+        "id": "fbe9",
+        "name": "test",
+        "address": "aaaaaaaaaaa",
+        "image": "../../assets/images/R1.jpg",
+        "status": "Available"
+    }]
+
+}
