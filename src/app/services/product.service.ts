@@ -33,4 +33,13 @@ export class ProductService {
     getProductById(id:number):Observable<Product>{
       return this.http.get<Product>(this.api+'/'+id)
     }
+    createProduct(product:Product):Observable<Product>{
+      return this.http.post<Product>(this.api,product)
+    }
+    deleteProductById(id:number):Observable<Product>{
+      return this.http.delete<Product>(this.api+'/'+id)
+    }
+    updateProduct(prod:Product,id:number):Observable<Product>{
+      return this.http.put<Product>(this.api+'/'+id,prod)
+    }
 }

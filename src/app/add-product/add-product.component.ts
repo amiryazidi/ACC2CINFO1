@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
+import { Product } from '../model/product';
 
 @Component({
   selector: 'app-add-product',
@@ -19,7 +20,15 @@ export class AddProductComponent {
    })
 
    add(){
-this.productservice.Product.push(this.formLogin.value as any)
-this.router.navigateByUrl("/product")
+    const productBody:Product={
+      id:Number(this.formLogin.value!.id),
+      title:this.formLogin.value!.title??"",
+      price:Number(this.formLogin.value!.price),
+      quantity: Number(this.formLogin.value!.quantity),
+      image: this.formLogin.value!.image??"",
+    }
+// this.productservice.Product.push(this.formLogin.value as any)
+this.productservice.createProduct(productBody).subscribe(()=>this.router.navigateByUrl("/product")
+)
    }
 }

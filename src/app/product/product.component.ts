@@ -14,9 +14,14 @@ export class ProductComponent {
 
   ngOnInit(){
    // this.Product= this.ps.Product
- this.ps.getAllProducts().subscribe(
-  (data) => this.Product=data
+ this.ps.getAllProducts().subscribe({
+     next:(data)=>this.Product=data,
+     error:(err)=>console.log(err),
+     complete:()=>{console.log('done')}
+ }
+  
  )
+
   }
 
 
@@ -28,7 +33,11 @@ export class ProductComponent {
         return this.ps.getcalcul(this.Product,'quantity',0)
     }
 
-
+delete(id:number){
+  this.ps.deleteProductById(id).subscribe(
+    ()=> this.ngOnInit()
+  )
+}
 
 
 
